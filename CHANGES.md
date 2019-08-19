@@ -9,6 +9,11 @@
 - FIX
     - バグ修正
 
+# develop
+
+- リポジトリ名を sora-webrtc-android から shiguredo-webrtc-android に変更した
+  - jitpack.io の参照が `"com.github.shiguredo:shiguredo-webrtc-android:${libwebrtc_version}"` に変わる
+
 # 75.16.0
 
 ```
