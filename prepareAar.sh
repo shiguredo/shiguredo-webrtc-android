@@ -7,7 +7,7 @@ VERSION=75.16.0
 ## このリポジトリ的にメンテナンス番号をふるときは ${VERSION}.1 などとする
 RELEASE_VERSION=${VERSION}
 
-AAR_URL=https://github.com/shiguredo/sora-webrtc-android/releases/download/${VERSION}/libwebrtc.aar
+AAR_URL=https://github.com/shiguredo/shiguredo-webrtc-android/releases/download/${VERSION}/libwebrtc.aar
 
 echo VERSION=${VERSION}
 echo RELEASE_VERSION=${RELEASE_VERSION}
@@ -24,4 +24,4 @@ mvn install:install-file \
     -Dpackaging=aar \
     -Dversion=${RELEASE_VERSION} \
     -DgroupId=com.github.shiguredo \
-    -DartifactId=sora-webrtc-android
+    -DartifactId=shiguredo-webrtc-android
