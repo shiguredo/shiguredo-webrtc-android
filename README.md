@@ -1,8 +1,14 @@
 # WebRTC libraries for Android
 
-このリポジトリは [WebRTC SFU Sora](https://sora.shiguredo.jp) Android SDK 向けにビルドした libwebrtc.aar ファイルを公開しています。
+このリポジトリは時雨堂がビルドした libwebrtc.aar ファイルを公開しています。
+おもに [WebRTC SFU Sora](https://sora.shiguredo.jp) Android SDK 向けに利用することを想定していますが、その限りでは有りません。
 
 利用方法の例は [Sora Android SDK のドキュメント](https://sora.shiguredo.jp/android-sdk-doc/) をご覧ください。
+
+## About Support
+
+We check PRs or Issues only when written in JAPANESE.
+In other languages, we won't be able to deal with them. Thank you for your understanding.
 
 ## jitpack.io での AAR の配布
 
@@ -18,7 +24,7 @@ build.gradle で、リポジトリ URL の追加、および依存関係を記�
 
 
 ```
-api "com.github.shiguredo:sora-webrtc-android:${libwebrtc_version}"
+api "com.github.shiguredo:shiguredo-webrtc-android:${libwebrtc_version}"
 ```
 
 ## ライセンス
@@ -39,7 +45,7 @@ releases にある `THIRD_PARTY_LICENSES.md` を参照して下さい。
 ## リリース方法 (開発者向け)
 
 1. AAR をビルドする
-   - 詳細は https://github.com/shiguredo/sora-webrtc-build リポジトリを参照
+   - 詳細は https://github.com/shiguredo/shiguredo-webrtc-build リポジトリを参照
 2. `git flow release start <RELEASE_VERSION>`
 3. `prepareAar.sh` の `VERSION` を変更する
 4. `prepareAar.sh` の `RELEASE_VERSION` を変更する
@@ -47,7 +53,7 @@ releases にある `THIRD_PARTY_LICENSES.md` を参照して下さい。
      複数バージョンをつけたい場合はサフィックスを付ける
 5. `git flow release finish <RELEASE_VERSION>`
 6. `git push --tags origin master develop`
-7. sora-webrtc-build でビルドしたファイルを releases の `<RELEASE_VERSION>` タグに上げる
+7. shiguredo-webrtc-build でビルドしたファイルを releases の `<RELEASE_VERSION>` タグに上げる
    - `libwebrtc.aar`
    - `THIRD_PARTY_LICENSES.md`
-8. shiguredo / sora-webrtc-android https://jitpack.io/#shiguredo/sora-webrtc-android/ を確認
+8. shiguredo / shiguredo-webrtc-android https://jitpack.io/#shiguredo/shiguredo-webrtc-android/ を確認
