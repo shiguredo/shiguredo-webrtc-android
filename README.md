@@ -5,6 +5,11 @@
 
 利用方法の例は [Sora Android SDK のドキュメント](https://sora.shiguredo.jp/android-sdk-doc/) をご覧ください。
 
+## About Support
+
+We check PRs or Issues only when written in JAPANESE.
+In other languages, we won't be able to deal with them. Thank you for your understanding.
+
 ## jitpack.io での AAR の配布
 
 公開している AAR ファイルを jitpack.io でも配布しています。
