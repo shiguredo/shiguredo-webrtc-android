@@ -9,10 +9,38 @@
 - FIX
     - バグ修正
 
-# develop
 
-- リポジトリ名を sora-webrtc-android から shiguredo-webrtc-android に変更した
+# 79.5.1
+
+- ADD: onremovetrack を含む[パッチ](https://github.com/shiguredo/shiguredo-webrtc-build/blob/develop/config/android-m79.5-onremovetrack/patch/android.diff)を追加
+
+```
+BRANCH=79
+COMMIT=5
+REVISION=b484ec0082948ae086c2ba4142b4d2bf8bc4dd4b
+MAINT=0
+```
+
+# 79.5.0
+
+```
+BRANCH=79
+COMMIT=5
+REVISION=b484ec0082948ae086c2ba4142b4d2bf8bc4dd4b
+MAINT=0
+```
+
+# 78.8.0
+
+- CHANGE: リポジトリ名を sora-webrtc-android から shiguredo-webrtc-android に変更した
   - jitpack.io の参照が `"com.github.shiguredo:shiguredo-webrtc-android:${libwebrtc_version}"` に変わる
+
+```
+BRANCH=78
+COMMIT=8
+REVISION=0b2302e5e0418b6716fbc0b3927874fd3a842caf
+MAINT=0
+```
 
 # 75.16.0
 
