@@ -9,6 +9,18 @@
 - FIX
     - バグ修正
 
+
+# 79.5.1
+
+- ADD: onremovetrack を含む[パッチ](https://github.com/shiguredo/shiguredo-webrtc-build/blob/develop/config/android-m79.5-onremovetrack/patch/android.diff)を追加
+
+```
+BRANCH=79
+COMMIT=5
+REVISION=b484ec0082948ae086c2ba4142b4d2bf8bc4dd4b
+MAINT=0
+```
+
 # 79.5.0
 
 ```
