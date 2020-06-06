@@ -9,6 +9,10 @@
 - FIX
     - バグ修正
 
+# 83.4103.12.2
+
+- AAR を https://github.com/shiguredo-webrtc-build/webrtc-build/ でビルドした
+  - https://github.com/shiguredo-webrtc-build/webrtc-build/releases/download/m83.4103.12.2/webrtc.android.tar.gz を解凍したファイルの `aar/libwebrtc_onremovetrack.aar` を `libwebrtc.aar` にリネームして GitHub の releases にアップしている
 
 # 79.5.1
 
