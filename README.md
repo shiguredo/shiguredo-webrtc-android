@@ -29,7 +29,7 @@ api "com.github.shiguredo:shiguredo-webrtc-android:${libwebrtc_version}"
 
 ## ライセンス
 
-このリポジトリにあるコードは Apatch License Version 2.0 でライセンスされます。
+このリポジトリにあるコードは Apache License Version 2.0 でライセンスされます。
 
 libwebrtc (webrtc.org) のコードは webrtc.org のライセンス、
 パテントの指定に従います。このリポジトリのルート直下の `LICENSE_WEBRTC`,
