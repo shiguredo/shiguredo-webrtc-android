@@ -5,10 +5,15 @@
 
 利用方法の例は [Sora Android SDK のドキュメント](https://sora-android-sdk.shiguredo.jp/) をご覧ください。
 
-## About Support
+## About Shiguredo's open source software
 
-We check PRs or Issues only when written in JAPANESE.
-In other languages, we won't be able to deal with them. Thank you for your understanding.
+We will not respond to PRs or issues that have not been discussed on Discord. Also, Discord is only available in Japanese.
+
+Please read https://github.com/shiguredo/oss before use.
+
+## 時雨堂のオープンソースソフトウェアについて
+
+利用前に https://github.com/shiguredo/oss をお読みください。
 
 ## jitpack.io での AAR の配布
 
