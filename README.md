@@ -45,20 +45,3 @@ libwebrtc (webrtc.org) のコードは webrtc.org のライセンス、
 
 releases, jitpack.io で配布する libwebrtc の AAR バイナリのライセンスは、
 releases にある `THIRD_PARTY_LICENSES.md` を参照して下さい。
-
-
-## リリース方法 (開発者向け)
-
-1. AAR をビルドする
-   - https://github.com/shiguredo-webrtc-build/webrtc-build
-2. `git flow release start <RELEASE_VERSION>`
-3. `prepareAar.sh` の `VERSION` を変更する
-4. `prepareAar.sh` の `RELEASE_VERSION` を変更する
-   - 基本は `VERSION` と同じ、このリポジトリのメンテンナスにより同一 AAR に
-     複数バージョンをつけたい場合はサフィックスを付ける
-5. `git flow release finish <RELEASE_VERSION>`
-6. `git push --tags origin master develop`
-7. shiguredo-webrtc-build でビルドしたファイルを releases の `<RELEASE_VERSION>` タグに上げる
-   - `libwebrtc.aar`
-   - `THIRD_PARTY_LICENSES.md`
-8. shiguredo / shiguredo-webrtc-android https://jitpack.io/#shiguredo/shiguredo-webrtc-android/ を確認
