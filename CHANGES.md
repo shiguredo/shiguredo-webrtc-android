@@ -9,8 +9,13 @@
 - FIX
     - バグ修正
 
+# 122.6261.1.0
+
+- https://github.com/shiguredo-webrtc-build/webrtc-build/releases/download/m122.6261.1.0/webrtc.android.tar.gz
+
 # 123.6312.3.0
 
+- H.265 の受信が行えない問題があったためリリースをスキップする
 - https://github.com/shiguredo-webrtc-build/webrtc-build/releases/download/m123.6312.3.0/webrtc.android.tar.gz
 
 # 121.6167.4.0
