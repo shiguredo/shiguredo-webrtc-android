@@ -9,6 +9,10 @@
 - FIX
     - バグ修正
 
+# 125.6422.2.5
+
+- https://github.com/shiguredo-webrtc-build/webrtc-build/releases/download/m125.6422.2.5/webrtc.android.tar.gz
+
 # 122.6261.1.4
 
 - https://github.com/shiguredo-webrtc-build/webrtc-build/releases/download/m122.6261.1.4/webrtc.android.tar.gz
