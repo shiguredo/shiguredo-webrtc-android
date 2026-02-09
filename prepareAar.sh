@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=142.7444.2.1
+VERSION=144.7559.2.2
 
 ## このリポジトリ的にメンテナンス番号をふるときは ${VERSION}.1 などとする
 RELEASE_VERSION=${VERSION}
