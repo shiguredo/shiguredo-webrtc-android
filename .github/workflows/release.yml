@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   create-release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
@@ -22,14 +22,9 @@ jobs:
           set -euo pipefail
 
           RELEASE_VERSION="${GITHUB_REF_NAME}"
-          if [[ ! "${RELEASE_VERSION}" =~ ^[0-9]+(\.[0-9]+){3,}$ ]]; then
-            echo "Unsupported tag format: ${RELEASE_VERSION}" >&2
-            echo "Expected numeric dot-separated version like 148.7778.7.0" >&2
-            exit 1
-          fi
 
           WEBRTC_BUILD_TAG="m${RELEASE_VERSION}"
-          SDK_URL="https://github.com/shiguredo-webrtc-build/webrtc-build/releases/download/${WEBRTC_BUILD_TAG}/webrtc.android_sdk.tar.gz"
+          SDK_URL="https://github.com/shiguredo-webrtc-build/webrtc-build/releases/download/m${WEBRTC_BUILD_TAG}/webrtc.android_sdk.tar.gz"
 
           mkdir -p dist
           curl -fsSL -o dist/webrtc.android_sdk.tar.gz "${SDK_URL}"
@@ -39,9 +34,7 @@ jobs:
           cp dist/webrtc/NOTICE dist/NOTICE
 
           cat > dist/release-notes.md <<EOF
-This release republishes artifacts from shiguredo-webrtc-build.
-
-- ${SDK_URL}
+${SDK_URL}
 EOF
 
       - name: Create or update GitHub Release
