@@ -1,0 +1,73 @@
+name: Create Release From Tag
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: write
+
+jobs:
+  create-release:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      # WebRTC Build のリリースアーカイブを取得し、配布する成果物とリリースノートを準備する
+      - name: Prepare assets
+        shell: bash
+        run: |
+          # タグ名をこのリポジトリ側のリリースバージョンとして扱う
+          RELEASE_VERSION="${GITHUB_REF_NAME}"
+
+          # webrtc-build 側のタグ名（m プレフィックス付き）を組み立てる
+          WEBRTC_BUILD_TAG="m${RELEASE_VERSION}"
+          SDK_URL="https://github.com/shiguredo-webrtc-build/webrtc-build/releases/download/${WEBRTC_BUILD_TAG}/webrtc.android_sdk.tar.gz"
+
+          # upstream アーカイブをダウンロードして展開する
+          mkdir -p dist
+          curl -fsSL -o dist/webrtc.android_sdk.tar.gz "${SDK_URL}"
+          tar -xzf dist/webrtc.android_sdk.tar.gz -C dist
+
+          # GitHub Release に添付する2ファイルを所定名で配置する
+          cp dist/webrtc/aar/libwebrtc.aar dist/libwebrtc.aar
+          cp dist/webrtc/NOTICE dist/NOTICE
+
+          # リリースノート本文はダウンロード URL を記載する
+          cat > dist/release-notes.md <<EOF
+${SDK_URL}
+EOF
+
+      # タグに対応する GitHub Release を作成し、既存ならタイトルとノートを更新する
+      - name: Create or update GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          # 既存 release があれば編集、なければ新規作成する
+          if gh release view "${GITHUB_REF_NAME}" > /dev/null 2>&1; then
+            gh release edit "${GITHUB_REF_NAME}" \
+              --title "${GITHUB_REF_NAME}" \
+              --notes-file dist/release-notes.md \
+              --latest
+          else
+            gh release create "${GITHUB_REF_NAME}" \
+              --title "${GITHUB_REF_NAME}" \
+              --notes-file dist/release-notes.md \
+              --latest
+          fi
+
+      # リリースに成果物をアップロードし、既存アセットは上書きする
+      - name: Upload assets to GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          # 同名アセットが既にある場合でも --clobber で置き換える
+          gh release upload "${GITHUB_REF_NAME}" \
+            dist/libwebrtc.aar \
+            dist/NOTICE \
+            --clobber
