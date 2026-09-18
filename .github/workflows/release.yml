@@ -37,9 +37,7 @@ jobs:
           cp dist/webrtc/NOTICE dist/NOTICE
 
           # リリースノート本文はダウンロード URL を記載する
-          cat > dist/release-notes.md <<EOF
-${SDK_URL}
-EOF
+          printf '%s\n' "${SDK_URL}" > dist/release-notes.md
 
       # タグに対応する GitHub Release を作成し、既存ならタイトルとノートを更新する
       - name: Create or update GitHub Release
